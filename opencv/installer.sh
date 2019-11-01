@@ -66,3 +66,4 @@ echo "INSTALLING OPENCV $VERSION..."
 cv_install
 echo "VERIFY INSTALLATION..."
 cv_verify_install
+
