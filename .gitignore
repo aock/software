@@ -4,5 +4,6 @@
 # except
 !*/
 !.gitignore
+!**/install_deps.sh
 !**/installer.sh
 !**/uninstaller.sh
