@@ -1,0 +1,8 @@
+# Ignore everything
+*
+
+# except
+!*/
+!.gitignore
+!**/installer.sh
+!**/uninstaller.sh
