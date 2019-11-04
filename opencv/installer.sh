@@ -56,6 +56,21 @@ cv_verify_install() {
     fi
 }
 
+cv_cmake_test() {
+    cd $SCRIPTPATH
+    cd cmake_test
+    mkdir -p build
+    cd build
+    cmake ..
+    make
+    VVERSION=$(./example)
+    if [ "$VERSION" = "$VVERSION" ]; then
+        echo "cmake success."
+    else
+        echo "cmake test failed."
+    fi
+}
+
 echo "INSTALLING DEPENDENCIES..."
 cv_install_deps
 echo "DOWNLOADING..."
@@ -66,4 +81,5 @@ echo "INSTALLING OPENCV $VERSION..."
 cv_install
 echo "VERIFY INSTALLATION..."
 cv_verify_install
-
+echo "TEST CMAKE"
+cv_cmake_test

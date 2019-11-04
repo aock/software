@@ -7,3 +7,4 @@
 !**/install_deps.sh
 !**/installer.sh
 !**/uninstaller.sh
+!opencv/cmake_test
