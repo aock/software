@@ -1,8 +1,46 @@
 #!/usr/bin/env bash
 
-wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
-sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
-sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
-sudo add-apt-repository "deb http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
-sudo apt-get update
-sudo apt-get -y install cuda
+VERSION="10.1"
+
+set -e
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+cd $SCRIPTPATH
+
+if [ "$VERSION" == "10.1" ]; then
+    DOWNLOADLINK="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run"
+elif [ "$VERSION" == "10.0" ]; then
+    DOWNLOADLINK="https://developer.nvidia.com/compute/cuda/10.0/Prod/local_installers/cuda_10.0.130_410.48_linux"
+fi
+
+wget -q --show-progress -O cuda.run "$DOWNLOADLINK"
+chmod +x cuda.run
+
+# check driver
+DRIVERVERSION=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader)
+
+re='^[0-9.]+$'
+
+INSTALL_DRIVER=0
+
+if ! [[ $DRIVERVERSION =~ $re ]] ; then
+    INSTALL_DRIVER=true
+else
+    read -e -p "Override GPU driver $DRIVERVERSION? [y/N] " OVERRIDE
+    OVERRIDE=${OVERRIDE:-n}
+
+    if [ $OVERRIDE == "y" ]; then
+        INSTALL_DRIVER=1
+    else
+        INSTALL_DRIVER=0
+    fi
+fi
+
+if [[ $INSTALL_DRIVER == 0 ]]; then
+    echo "Installing without drivers..."
+    sudo sh cuda.run --silent --toolkit --samples
+else
+    echo "Installing with new drivers..."
+    sudo sh cuda.run --silent --driver --toolkit --samples 
+fi
+
+rm cuda.run
