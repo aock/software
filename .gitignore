@@ -1,11 +1,12 @@
 # Ignore everything
 *
 
-**/build/**
-
 # except
 # !*/
 !.gitignore
-!**/install_deps.sh
-!**/installer.sh
-!**/uninstaller.sh
+!opencv
+!opencv/install_deps.sh
+!opencv/installer.sh
+!opencv/uninstaller.sh
+!cuda
+!cuda/installer.sh
