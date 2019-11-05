@@ -27,3 +27,9 @@
 !eigen/cmake_test
 !eigen/cmake_test/CMakeLists.txt
 !eigen/cmake_test/example.cpp
+
+# lvr2
+!lvr2
+!lvr2/install_deps.sh
+!lvr2/installer.sh
+!lvr2/uninstaller.sh
