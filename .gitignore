@@ -10,3 +10,4 @@
 !opencv/uninstaller.sh
 !cuda
 !cuda/installer.sh
+!cuda/uninstaller.sh
