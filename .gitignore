@@ -4,14 +4,23 @@
 # except
 # !*/
 !.gitignore
+
+# opencv
 !opencv
 !opencv/install_deps.sh
 !opencv/installer.sh
 !opencv/uninstaller.sh
+!opencv/cmake_test
+!opencv/cmake_test/example.cpp
+!opencv/cmake_test/CMakeLists.txt
+
+#cuda
 !cuda
 !cuda/installer.sh
 !cuda/uninstaller.sh
 !cuda/.cudarc
+
+# eigen
 !eigen
 !eigen/installer.sh
 !eigen/uninstaller.sh
