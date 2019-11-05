@@ -12,3 +12,9 @@
 !cuda/installer.sh
 !cuda/uninstaller.sh
 !cuda/.cudarc
+!eigen
+!eigen/installer.sh
+!eigen/uninstaller.sh
+!eigen/cmake_test
+!eigen/cmake_test/CMakeLists.txt
+!eigen/cmake_test/example.cpp
