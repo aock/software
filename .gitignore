@@ -11,3 +11,4 @@
 !cuda
 !cuda/installer.sh
 !cuda/uninstaller.sh
+!cuda/.cudarc
