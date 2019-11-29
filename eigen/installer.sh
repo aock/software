@@ -30,7 +30,8 @@ eigen_install() {
 eigen_verify() {
     cd $SCRIPTPATH
     cd cmake_test
-    mkdir -p build
+    [ -d "build" ] && rm -rf build
+    mkdir build
     cd build
     cmake ..
     make
