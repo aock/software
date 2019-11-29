@@ -13,6 +13,7 @@ ros_prepare() {
 
 ros_install() {
     sudo apt-get install ros-$VERSION-desktop-full
+    # sudo aptitude install ros-$VERSION-desktop-full
 }
 
 ros_postpare() {
@@ -27,11 +28,11 @@ ros_install_build_packages() {
 
 echo "ROS $VERSION installer."
 echo "Preparing..."
-ros_prepare()
+ros_prepare
 echo "Installing..."
-ros_install()
+ros_install
 echo "Installing build packages..."
-ros_install_build_packages()
+ros_install_build_packages
 echo "Configurating..."
-ros_postpare()
+ros_postpare
 echo "Source ~/.rosrc in your bashrc or zshrc to finish installation."
