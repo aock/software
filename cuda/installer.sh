@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
-VERSION="10.2"
+VERSION="11.0"
 
 set -e
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 cd $SCRIPTPATH
 
-if [[ "$VERSION" == "10.2" ]]; then
+if [[ "$VERSION" == "11.0" ]]; then
+    DOWNLOADLINK="http://developer.download.nvidia.com/compute/cuda/11.0.1/local_installers/cuda_11.0.1_450.36.06_linux.run"
+elif [[ "$VERSION" == "10.2" ]]; then
     DOWNLOADLINK="http://developer.download.nvidia.com/compute/cuda/10.2/Prod/local_installers/cuda_10.2.89_440.33.01_linux.run"
 elif [[ "$VERSION" == "10.1" ]]; then
     DOWNLOADLINK="http://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run"
