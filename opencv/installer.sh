@@ -12,7 +12,7 @@ cd $SCRIPTPATH
 
 cv_install_deps() {
     cd $SCRIPTPATH
-    ./install_deps.sh >/dev/null
+    ./install_deps.sh
 }
 
 cv_download() {
